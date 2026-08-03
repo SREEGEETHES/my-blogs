@@ -1,6 +1,6 @@
 ---
 title: "Building OmniCard: An AI-Powered Media Manager That Respects Your Privacy"
-date: 2026-08-03 15:00:00 +0530
+date: 2026-08-03
 categories: [Projects, AI]
 tags: [python, ai, computer-vision, vector-search, lancedb, fastapi, opencv, nvidia, desktop]
 description: >
@@ -114,7 +114,7 @@ For each image it:
 1. Generates a thumbnail.
 2. Creates an AI caption.
 3. Detects objects.
-4. Extracts colors.
+4. Extracts dominant colors.
 5. Generates vector embeddings.
 6. Stores metadata.
 7. Computes perceptual hashes for duplicate detection.
@@ -132,7 +132,7 @@ All media files remain on your own machine.
 Application data is stored locally, including:
 
 - SQLite database
-- Vector index
+- LanceDB vector index
 - Thumbnail cache
 - Trash folder
 
@@ -144,19 +144,19 @@ The application never uploads your photo library.
 
 I wanted OmniCard to feel like a native desktop application instead of another web app.
 
-The backend is written in Python and FastAPI, while the interface is displayed using **pywebview**.
+The backend is written in Python using FastAPI, while the interface runs inside a native window powered by **pywebview**.
 
-The final application can be packaged into a standalone executable using **PyInstaller**, making installation simple for end users.
+For distribution, the application is packaged into a standalone executable using **PyInstaller**, allowing users to install and run OmniCard without setting up a Python environment.
 
 ---
 
 ## Deployment
 
-I also built a landing page for the project using GitHub Pages.
+The project also includes a landing page hosted with GitHub Pages.
 
-Every push automatically redeploys the website through GitHub Actions, so publishing updates is as simple as pushing new commits.
+Every push to the repository automatically redeploys the website using GitHub Actions, making publishing updates as simple as pushing a commit.
 
-Project links:
+### Project Links
 
 **Landing Page**
 
@@ -174,17 +174,17 @@ https://github.com/SREEGEETHES/Omnicard/releases/tag/v1.0.0
 
 ## Challenges
 
-Some of the biggest challenges weren't related to AI.
+Some of the biggest challenges were not related to AI itself.
 
 They included:
 
 - Processing thousands of images efficiently
-- Keeping the desktop application responsive during indexing
-- Packaging a Python application into a standalone executable
+- Keeping the application responsive during indexing
 - Managing vector search locally
-- Detecting duplicate images accurately
+- Packaging a desktop application for Windows
+- Detecting duplicate images accurately using perceptual hashing
 
-Each challenge helped me understand more about desktop software development and AI-powered search systems.
+Each challenge taught me something new about building production-ready desktop software.
 
 ---
 
@@ -193,13 +193,14 @@ Each challenge helped me understand more about desktop software development and 
 Building OmniCard gave me hands-on experience with:
 
 - Local-first software architecture
+- Computer vision
 - AI vision models
 - Semantic search
 - Vector databases
-- Computer vision
-- Desktop application packaging
+- Desktop application development
 - GitHub Actions
 - Performance optimization
+- Python application packaging
 
 ---
 
@@ -219,10 +220,10 @@ The roadmap currently includes:
 
 ## Final Thoughts
 
-OmniCard started as a solution to my own problem, but it became one of the most enjoyable projects I've built.
+OmniCard started as a solution to my own problem, but it quickly became one of the most enjoyable projects I've built.
 
-If you've ever struggled to find photos hidden inside thousands of files, I hope this project helps.
+If you've ever spent more time looking for a photo than actually taking it, you'll understand why I wanted to build this.
 
-I'm always open to feedback, feature suggestions, and contributions.
+I'm excited to continue improving OmniCard and would love to hear your feedback, feature ideas, or suggestions.
 
-Thank you for reading!
+Thanks for reading!
